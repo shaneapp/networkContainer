@@ -9,11 +9,11 @@ class NetworkTests {
 
     @Test
     fun testSecureClient() {
-        val unsecureNetwork: Network = mockk()
+        val unsecureNetwork = NetworkContainer(UnsecureHttpClient())
         assertEquals(unsecureNetwork.protocolAllowed(secureEndpoint), true)
         assertEquals(unsecureNetwork.protocolAllowed(unsecureEndpoint), true)
 
-        val secureNetwork: Network = mockk()
+        val secureNetwork = NetworkContainer(SecureHttpClient())
         assertEquals(secureNetwork.protocolAllowed(secureEndpoint), true)
         assertEquals(secureNetwork.protocolAllowed(unsecureEndpoint), false)
     }
