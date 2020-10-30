@@ -1,4 +1,5 @@
 .DS_Store
+.idea/vcs.xml
 .idea/shelf
 /confluence/target
 /dependencies/repo
