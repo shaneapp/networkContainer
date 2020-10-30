@@ -13,4 +13,5 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     testCompile("junit", "junit", "4.12")
+    testImplementation("io.mockk:mockk:1.10.0")
 }
