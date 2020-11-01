@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
 
 class NetworkContainer(private val httpClient: IHttpClient) : Network {
     override fun requestSync(endpoint: String, httpMethod: HttpMethod, responseDecoder: IResponseDecoder<DebugResponse>): DebugResponse {
-        TODO("Not yet implemented")
+        return responseDecoder.deserialize(httpClient.performFetch())
     }
 
     override fun protocolAllowed(endpoint: String): Boolean {
