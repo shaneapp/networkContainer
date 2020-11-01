@@ -20,6 +20,8 @@ fun main(args: Array<String>) {
     println("Header Result: $headerResult")
 }
 
+// -- MARK: implementation--
+
 class NetworkContainer(private val httpClient: IHttpClient) : Network {
     override fun <T: IDecoderResult>requestSync(endpoint: String, httpMethod: HttpMethod,
                                                 responseDecoder: IResponseDecoder<T>) : T {
@@ -31,6 +33,8 @@ class NetworkContainer(private val httpClient: IHttpClient) : Network {
         return httpClient.validateDomain(endpoint)
     }
 }
+
+// -- MARK: concrete definitions --
 
 class HeaderDecoder : IResponseDecoder<HeaderResponse> {
     override fun deserialize(rawResult: ByteArray): HeaderResponse {
@@ -64,6 +68,8 @@ class SecureHttpClient : IHttpClient {
     }
     override fun validateDomain(endpoint: String) = endpoint.startsWith("https")
 }
+
+// -- MARK: abstract definitions --
 
 interface IHttpClient {
     fun performFetch(): ByteArray
