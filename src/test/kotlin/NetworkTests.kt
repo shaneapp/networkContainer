@@ -38,7 +38,7 @@ class NetworkTests {
 
         val postResult = network.requestSync(secureEndpoint, HttpMethod.POST, debugDecoder)
 
-        verify(exactly = 1) { network.requestSync(any(), any(), any()) }
+        verify(exactly = 1) { network.requestSync(any(), any(), any<IResponseDecoder<*>>()) }
         assertEquals(postResult.debugOutput, "Test response")
     }
 
